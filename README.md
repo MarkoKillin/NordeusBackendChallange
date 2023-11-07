@@ -56,8 +56,7 @@ you have the liberty to decide how those ambiguous parts should function.
 ### Submission format
 Please note that each challenge can be completed in less than 2 weeks (e.g. a few days) but we wanted to be mindful of your faculty obligations.
 
-The submission should be sent via email to [jobfair@nordeus.com](mailto:jobfair@nordeus.com?subject=Backend Challenge) 
-with a link to your GitHub repository, or a zipped project. 
+The submission should be sent via email to _jobfair@nordeus.com_ with a link to your GitHub repository, or a zipped project. 
 Email subject should be: **Backend Challenge**.
 
 **Challenge is open until November 20, 2023** end of day. Good luck!
