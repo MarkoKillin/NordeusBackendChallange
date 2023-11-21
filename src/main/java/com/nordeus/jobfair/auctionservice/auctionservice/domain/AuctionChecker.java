@@ -4,6 +4,7 @@ import com.nordeus.jobfair.auctionservice.auctionservice.domain.model.Auction;
 import com.nordeus.jobfair.auctionservice.auctionservice.domain.service.AuctionNotifer;
 
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.TimerTask;
 
 public class AuctionChecker extends TimerTask {
@@ -20,12 +21,14 @@ public class AuctionChecker extends TimerTask {
     public void run() {
         long currentTime = System.currentTimeMillis();
         synchronized (auctions) {
-            for (Auction a: auctions) {
+            Iterator<Auction> it = auctions.iterator();
+            while (it.hasNext()) {
+                Auction a = it.next();
                 long timeElapsed = currentTime - a.getStartTime();
                 if(timeElapsed > 60_000){
                     if(a.getCurrentBid() == null || currentTime - a.getCurrentBid().getTime() > 5_000){
                         auctionNotifer.auctionFinished(a);
-                        auctions.remove(a);
+                        it.remove();
                     }
                 }
             }

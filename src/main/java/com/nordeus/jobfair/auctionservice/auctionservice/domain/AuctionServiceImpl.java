@@ -19,7 +19,7 @@ public class AuctionServiceImpl implements AuctionService {
     private final Timer timer;
     public AuctionServiceImpl() {
         this.auctionNotifer = new AuctionNotifierLogger();
-        this.auctions = new CopyOnWriteArrayList<>();
+        this.auctions = new LinkedList<>();
         this.timer = new Timer();
         this.timer.schedule(new AuctionCreator(auctions, auctionNotifer), 0, 60_000);
         this.timer.schedule(new AuctionChecker(auctions, auctionNotifer), 2_000, 2_000);
